@@ -1,0 +1,831 @@
+tan(π)→R
+If R=0
+Then
+ClrHome
+Disp "ERROR:"
+Disp ""
+Disp ""
+Disp "RADIANS UNSUPPORTED."
+Disp "PLEASE SWITCH TO DEGREES"
+Disp "AND RESTART THE PROGRAM."
+Disp ""
+Disp ""
+Disp "(ENTER/CLEAR TO EXIT)"
+
+getKey→K
+While K≠105
+If K=45
+Then
+Goto X
+End
+getKey→K
+End
+Goto X
+End
+
+0→M
+Lbl Z
+ClrHome
+Disp "NIFTI TRIANGLE SOLVER (BETA)"
+Disp "1:VISUALIZER - [  ]"
+Disp "2:SOLVE - SSS"
+Disp "3:SOLVE - SAS"
+Disp "4:SOLVE - ASA"
+Disp "5:SOLVE - AAS"
+Disp "6:SOLVE - SSA"
+Disp "7:ABOUT"
+Disp "8:HELP"
+Lbl S
+If M≠1
+Then
+Menu("NIFTI TRIANGLE SOLVER (BETA)","VISUALIZER - [ON]",U,"SOLVE - SSS",A,"SOLVE - SAS",B,"SOLVE - ASA",C,"SOLVE - AAS",D,"SOLVE - SSA",E,"ABOUT",W,"HELP",Y,"EXIT",X)
+Else
+Menu("NIFTI TRIANGLE SOLVER (BETA)","VISUALIZER - [OFF]",U,"SOLVE - SSS",A,"SOLVE - SAS",B,"SOLVE - ASA",C,"SOLVE - AAS",D,"SOLVE - SSA",E,"ABOUT",W,"HELP",Y,"EXIT",X)
+End
+
+Lbl U
+If M≠1
+Then
+1→M
+Else
+0→M
+End
+Goto S
+
+Lbl A
+ClrHome
+Repeat A>0
+Disp "INPUT SIDE A:"
+Input A
+ClrHome
+End
+Repeat B>0
+Disp "INPUT SIDE B:"
+Input B
+ClrHome
+End
+Repeat C>0
+Disp "INPUT SIDE C:
+Input C
+ClrHome
+End
+
+If A+B≤C
+Then
+Goto H
+End
+
+If B+C≤A
+Then
+Goto H
+End
+
+If A+C≤B
+Then
+Goto H
+End
+
+cos((B²+C²-A²)/(2BC))→D
+cos((A²+C²-B²)/(2AC))→E
+180-(D+E)→F
+
+Disp "(VAR D) ANGLE A:",D
+Disp "(VAR E) ANGLE B:",E
+Disp "(VAR F) ANGLE C:",F
+If M=0
+Then
+Goto G
+End
+Return
+
+Lbl H
+Then
+Disp "ERROR:"
+Disp ""
+Disp ""
+Disp "NO POSSIBLE TRIANGLE FOR"
+Disp "THE GIVEN VALUES. CHECK"
+Disp "VALUES AND TRY AGAIN."
+Disp ""
+Disp ""
+Disp "(ENTER/CLEAR TO FINISH)"
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+Goto Z
+End
+
+Lbl B
+ClrHome
+Repeat A>0
+Disp "INPUT SIDE A:"
+Input A
+ClrHome
+End
+Repeat B>0
+Disp "INPUT SIDE B:"
+Input B
+ClrHome
+End
+Repeat F>0
+Disp "INPUT ANGLE C:
+Input F
+ClrHome
+End
+
+√(A²+B²-2ABcos(F)→C
+cos((B²+C²-A²)/(2BC))→D
+180-(D+F)→E
+
+Disp "(VAR D) ANGLE A:",D
+Disp "(VAR E) ANGLE B:",E
+Disp "(VAR C) SIDE C:",C
+If M=0
+Then
+Goto G
+End
+Return
+
+Lbl C
+ClrHome
+Repeat D>0
+Disp "INPUT ANGLE A:"
+Input D
+ClrHome
+End
+Repeat E>0
+Disp "INPUT ANGLE B:"
+Input E
+ClrHome
+End
+Repeat C>0
+Disp "INPUT SIDE C:
+Input C
+ClrHome
+End
+
+If D+E≥180
+Then
+Disp "ERROR:"
+Disp ""
+Disp ""
+Disp "NO POSSIBLE TRIANGLE FOR"
+Disp "THE GIVEN VALUES. CHECK"
+Disp "VALUES AND TRY AGAIN."
+Disp ""
+Disp ""
+Disp "(ENTER/CLEAR TO FINISH)"
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+Goto Z
+End
+
+180-E-D→F
+sin(D)(C/sin(F)→A
+sin(E)(C/sin(F)→B
+
+Disp "(VAR A) SIDE A:",A
+Disp "(VAR B) SIDE B:",B
+Disp "(VAR F) ANGLE C:",F
+If M=0
+Then
+Goto G
+End
+Return
+
+Lbl D
+
+ClrHome
+Repeat D>0
+Disp "INPUT ANGLE A:"
+Disp "(OPPOSITE SIDE A)"
+Input D
+ClrHome
+End
+Repeat E>0
+Disp "INPUT ANGLE B:"
+Input E
+ClrHome
+End
+Repeat A>0
+Disp "INPUT SIDE A:"
+Disp "(OPPOSITE ANGLE A)"
+Input A
+ClrHome
+End
+
+If D+E≥180
+Then
+Disp "ERROR:"
+Disp ""
+Disp ""
+Disp "NO POSSIBLE TRIANGLE FOR"
+Disp "THE GIVEN VALUES. CHECK"
+Disp "VALUES AND TRY AGAIN."
+Disp ""
+Disp ""
+Disp "(ENTER/CLEAR TO FINISH)"
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+Goto Z
+End
+
+180-D-E→F
+sin(F)(A/sin(D)→C
+sin(E)(A/sin(D)→B
+
+Disp "(VAR C) SIDE C:",C
+Disp "(VAR B) SIDE B:",B
+Disp "(VAR F) ANGLE C:",F
+If M=0
+Then
+Goto G
+End
+Return
+
+Lbl E
+0→T
+ClrHome
+Repeat A>0
+Disp "INPUT SIDE A:"
+Disp "(OPPOSITE ANGLE A)"
+Input A
+ClrHome
+End
+Repeat B>0
+Disp "INPUT SIDE B:"
+Input B
+ClrHome
+End
+Repeat D>0
+Disp "INPUT ANGLE A:"
+Disp "(OPPOSITE SIDE A)"
+Input D
+ClrHome
+End
+
+Bsin(D)→H
+
+If A<H
+Then
+Disp "ERROR:"
+Disp ""
+Disp ""
+Disp "NO POSSIBLE TRIANGLE FOR"
+Disp "THE GIVEN VALUES. CHECK"
+Disp "VALUES AND TRY AGAIN."
+Disp ""
+Disp ""
+Disp "(ENTER/CLEAR TO FINISH)"
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+Goto Z
+End
+
+If A>H
+Then
+If A<B
+Then
+0→T
+Disp "MULTIPLE TRIANGLES:"
+Disp ""
+Disp "THERE ARE TWO POSSIBLE"
+Disp "TRIANGLES FOR THE GIVEN"
+Disp "VALUES."
+Disp ""
+Disp "1: SHOW ACUTE TRIANGLE"
+Disp "2: SHOW OBTUSE TRIANGLE"
+Disp "(CLEAR TO FINISH)
+getKey→K
+While K≠92
+getKey→K
+If K=93
+Then
+1→T
+Goto F
+End
+If K=45
+Then
+Goto Z
+End
+End
+End
+End
+
+Lbl F
+ClrHome
+
+If T=0
+Then
+sin(B(sin(D)/A))→E
+End
+
+If T=1
+Then
+180-sin(B(sin(D)/A))→E
+End
+
+180-(E+D)→F
+√(A²+B²-2ABcos(F))→C
+
+Disp "(VAR E) ANGLE B:",E
+Disp "(VAR F) ANGLE C:",F
+Disp "(VAR C) SIDE C:",C
+If M=0
+Then
+Goto G
+End
+Return
+
+Lbl G
+A→M
+B→N
+C→O
+D→P
+E→Q
+F→R
+
+0→G
+C→H
+Bcos(D)→I
+
+0→J
+J→K
+Asin(E)→L
+
+C→V
+
+G→A
+H→B
+I→C
+
+J→D
+K→E
+L→F
+
+F→G
+
+"(X)(X<0)+(0)(X≥0)"→Y₀
+"round((250(X+15))/30,0)"→Y₂
+"148-round((148(X+9))/18,0)"→Y₃
+
+V-Y₀(C)-Y₀(B-C)→V
+
+A-Y₀(C)→A
+B-Y₀(C)→B
+C-Y₀(C)→C
+
+22→X
+14.2→Y
+
+If X*G<Y*V
+Then
+X→W
+(GW)/V→H
+End
+
+If X*G≥Y*V
+Then
+(VH)/G→W
+End
+
+((AW)/V)-(W/2)→A
+((BW)/V)-(W/2)→B
+((CW)/V)-(W/2)→C
+((DH)/G)-(H/2)→D
+((EH)/G)-(H/2)→E
+((FH)/G)-(H/2)→F
+
+FnOff 
+ClrDraw
+ZStandard
+ZSquare
+RectGC
+CoordOff
+GridOff
+BorderColor 4
+BackgroundOff
+DetectAsymOff
+ExprOn
+LabelOff
+AxesOff
+
+Line(A,D,B,E,1,18,1)
+Line(A,D,C,F,1,13,1)
+Line(C,F,B,E,1,15,1)
+
+FnOff 
+
+TextColor(10)
+Text(Y₃(D),Y₂(A),toString(round(P,2))+"°")
+
+TextColor(14)
+Text(Y₃(E),Y₂(B),toString(round(Q,2))+"°")
+
+TextColor(11)
+Text(Y₃(F),Y₂(C),toString(round(R,2))+"°")
+
+TextColor(18)
+Text(Y₃((D+E)/2),Y₂((A+B)/2),toString(round(O,2))
+
+TextColor(13)
+Text(Y₃((D+F)/2),Y₂((A+C)/2),toString(round(N,2))
+
+TextColor(15)
+Text(Y₃((F+E)/2),Y₂((C+B)/2),toString(round(M,2))
+
+TextColor(12)
+Text(0,0,"TRIANGLE ")
+Text(0,95,":")
+
+TextColor(10)
+Text(0,70,"A")
+TextColor(14)
+Text(0,77,"B")
+TextColor(11)
+Text(0,84,"C")
+Return
+
+Lbl W
+ClrHome
+Disp "WRITTEN BY ELI ANTONY."
+Disp "SPECIAL THANKS TO:"
+Disp "ERICA, MY MATH TEACHER,"
+Disp "FOR INSPIRING ME TO"
+Disp "MAKE THIS PROGRAM; AND"
+Disp "MY PARENTS, FOR ENCOURAG-"
+Disp "-ING ME AND TESTING!"
+Disp "(ENTER TO CONTINUE)"
+Disp "(CLEAR TO FINISH)"
+getKey→K
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+
+ClrHome
+Disp
+Disp "VERSION 1.0"
+Disp "PUBLIC BETA 1.01"
+Disp "PROGRAM RELEASED 4/17/23"
+Disp "VERSION RELEASED 8/19/23
+Disp ""
+Disp "NIFTI TRISOLVE FOR"
+Disp "TI-84 PLUS CE"
+Disp ""
+Disp "(ENTER/CLEAR TO FINISH)"
+While 1=1
+getKey→K
+If K=45
+Goto Z
+If K=105
+Goto Z
+End
+
+Lbl X
+ClrHome
+Return
+
+Lbl Y
+Menu("HELP","START",I,"SKIP TO SECTION",N,"BACK",Z)
+
+Lbl N
+Menu("SELECT SECTION","MAIN MENU (PG 1)",I,"INPUT (PG 6)",J,"OUTPUT (PG 10)",K,"VISUALIZER (PG 13)",L,"VARIABLES (PG 15)",M,"BACK",Y)
+
+Lbl I
+ClrHome
+Disp "HELP PG 1: MAIN MENU"
+Disp ""
+Disp "SELECT A FUNCTION FROM"
+Disp "THE MAIN MENU. 2-6 SOLVE"
+Disp "TRIANGLES BASED ON KNOWN"
+Disp "INFORMATION. 1 TURNS THE"
+Disp "VISUALIZER ON/OFF."
+Disp "(ENTER TO CONTINUE)"
+Disp "(CLEAR TO FINISH)"
+getKey→K
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+
+ClrHome
+Disp "HELP PG 2: MAIN MENU"
+Disp ""
+Disp "YOU WILL SEE 'SSS', 'SAS'"
+Disp "ETC. ON THE MENU. THESE"
+Disp "REPRESENT THE KNOWN PIECES"
+Disp "OF THE TRIANGLE. SO SSS"
+Disp "MEANS YOU GIVE ALL SIDES."
+Disp "(ENTER TO CONTINUE)"
+Disp "(CLEAR TO FINISH)"
+getKey→K
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+
+ClrHome
+Disp "HELP PG 3: MAIN MENU"
+Disp ""
+Disp "AAS FOR 2 ADJACENT"
+Disp "ANGLES AND A SIDE"
+Disp "OPPOSITE ONE OF THEM."
+Disp "ASA FOR 2 ANGLES AND THE"
+Disp "SIDE BETWEEN THEM."
+Disp "(ENTER TO CONTINUE)"
+Disp "(CLEAR TO FINISH)"
+getKey→K
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+
+ClrHome
+Disp "HELP PG 4: MAIN MENU"
+Disp ""
+Disp "SAS IS FOR TWO SIDES AND"
+Disp "THE ANGLE BETWEEN THEM."
+Disp "SSA IS FOR TWO SIDES AND"
+Disp "AN ANGLE OPPOSITE ONE OF"
+Disp "THEM."
+Disp "(ENTER TO CONTINUE)"
+Disp "(CLEAR TO FINISH)"
+getKey→K
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+
+ClrHome
+Disp "HELP PG 5: MAIN MENU"
+Disp "1234567890123456789012345"
+Disp "7 SHOWS ABOUT, WHERE YOU"
+Disp "CAN FIND CREDITS, "
+Disp "VERSION, ETC."
+Disp "8 GOES TO HELP, AND"
+Disp "9 EXITS THE PROGRAM."
+Disp "(ENTER TO CONTINUE)"
+Disp "(CLEAR TO FINISH)"
+getKey→K
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+
+Lbl J
+
+ClrHome
+Disp "HELP PG 6: INPUT"
+Disp ""
+Disp "ONCE YOU SELECT ONE OF"
+Disp "THE SOLVE FUNCTIONS, THE"
+Disp "PROGRAM WILL ASK YOU TO"
+Disp "GIVE INFORMATION ABOUT"
+Disp "THE TRIANGLE."
+Disp "(ENTER TO CONTINUE)"
+Disp "(CLEAR TO FINISH)"
+getKey→K
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+
+ClrHome
+Disp "HELP PG 7: INPUT"
+Disp ""
+Disp "WHICH ANGLES AND SIDES"
+Disp "ARE REQUESTED DEPENDS"
+Disp "ON THE SOLVE FUNCTION"
+Disp "YOU PICKED."
+Disp "[SEE PAGES 2-5.]"
+Disp "(ENTER TO CONTINUE)"
+Disp "(CLEAR TO FINISH)"
+getKey→K
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+
+ClrHome
+Disp "HELP PG 8: INPUT"
+Disp ""
+Disp "SOMETIMES, THE VALUES"
+Disp "GIVEN MIGHT NOT PRODUCE A"
+Disp "VALID TRIANGLE. YOU WILL"
+Disp "BE ASKED TO RE-INPUT THE"
+Disp "VALUES."
+Disp "(ENTER TO CONTINUE)"
+Disp "(CLEAR TO FINISH)"
+getKey→K
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+
+ClrHome
+Disp "HELP PG 9: INPUT"
+Disp ""
+Disp "THESE CASES INCLUDE:"
+Disp "SSS, WHEN THE SUM OF"
+Disp "THE TWO SMALLEST SIDES"
+Disp "IS NOT GREATER THAN"
+Disp "THE THIRD;"
+Disp "(ENTER TO CONTINUE)"
+Disp "(CLEAR TO FINISH)"
+getKey→K
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+
+Lbl K
+
+ClrHome
+Disp "HELP PG 10: INPUT"
+Disp ""
+Disp "AAS/ASA, WHEN THE TWO"
+Disp "INPUTTED ANGLES ARE NOT"
+Disp "LESS THAN 180°; AND"
+Disp "SSA, WHEN A SIDE IS TOO"
+Disp "LONG OR SHORT TO FIT."
+Disp "(ENTER TO CONTINUE)"
+Disp "(CLEAR TO FINISH)"
+getKey→K
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+
+ClrHome
+Disp "HELP PG 11: OUTPUT"
+Disp ""
+Disp "NOW, THE SOLVER WILL"
+Disp "OUTPUT THE VALUES. IF"
+Disp "GRAPHING IS ENABLED, YOU"
+Disp "MUST QUIT THE VISUALIZER"
+Disp "TO SEE THIS VIEW."
+Disp "(ENTER TO CONTINUE)"
+Disp "(CLEAR TO FINISH)"
+getKey→K
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+
+ClrHome
+Disp "HELP PG 12: OUTPUT"
+Disp ""
+Disp "WHEN USING SSA, YOU"
+Disp "CAN HAVE TWO POSSIBLE"
+Disp "TRIANGLES FOR THE GIVEN"
+Disp "VALUES. YOU'LL BE ASKED"
+Disp "WHICH ONE TO DISPLAY."
+Disp "(ENTER TO CONTINUE)"
+Disp "(CLEAR TO FINISH)"
+getKey→K
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+
+Lbl L
+
+ClrHome
+Disp "HELP PG 13: VISUALIZER"
+Disp ""
+Disp "IF VISUALIZER IS ENABLED,"
+Disp "YOU'LL SEE A GRAPH OF THE"
+Disp "SOLVED TRIANGLE. USE THE"
+Disp "LEGEND IN THE TOP LEFT TO"
+Disp "MAP COLORS TO VERTICES."
+Disp "(ENTER TO CONTINUE)"
+Disp "(CLEAR TO FINISH)"
+getKey→K
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+
+ClrHome
+Disp "HELP PG 14: VISUALIZER"
+Disp ""
+Disp "A IS ALWAYS THE BOTTOM-"
+Disp "LEFT CORNER, AND BLUE."
+Disp "B IS IN THE BOTTOM-RIGHT"
+Disp "AND GREEN, WHILE C IS"
+Disp "PLACED ABOVE AND IN RED."
+Disp "(ENTER TO CONTINUE)"
+Disp "(CLEAR TO FINISH)"
+getKey→K
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+
+
+Lbl M
+
+ClrHome
+Disp "HELP PG 15: VARIABLES"
+Disp ""
+Disp "AFTER THE PROGRAM HAS"
+Disp "RUN, THE SIDE LENGTHS"
+Disp "OF THE TRIANGLE ARE IN"
+Disp "A, B, AND C. THE ANGLES"
+Disp "ARE IN D, E, AND F."
+Disp "(ENTER TO CONTINUE)"
+Disp "(CLEAR TO FINISH)"
+getKey→K
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+
+ClrHome
+Disp "HELP PG 16: VARIABLES"
+Disp ""
+Disp "THE PROGRAM USES AND"
+Disp "OVERWRITES VARIABLES:"
+Disp "A B C D E F G H I J K"
+Disp "L M N O P Q R U V W X"
+Disp "Y Z Y₁ Y₂ Y₃ AND Y₀."
+Disp ""
+Disp "(ENTER/CLEAR TO FINISH)"
+getKey→K
+Repeat K=105
+getKey→K
+If K=45
+Then
+Goto Z
+End
+End
+
+Goto Z
