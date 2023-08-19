@@ -23,5 +23,5 @@ This program is written by Eli Antony.
 Thanks to my math teacher, Erica, for inspiring me to make this program!
 And my parents, for encouraging me and being my Beta testers.
 ## Other Info:
-Latest Version: PubBeta 1.02
-Stable Version: PubBeta 1
+Latest Version: 1.03
+Best Version: 1.03
